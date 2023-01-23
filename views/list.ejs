@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BLOG</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/send_url.js"></script>
+  </head>
+  <body>
+    <!-- memanggil file khusus header dengan include -->
+    <%- include('header'); %> 
+    <main>
+      <ul class="list">
+        <!-- menggunakan aray forEach untuk menampilkan semua data artikel -->
+        <% articles.forEach((article) => { %>
+          <li>
+            <!-- Tampilkan lencana "khusus anggota" ketika article.category bernilai `limited` -->
+            <% if (article.category === 'limited') {%>
+              <i>KHUSUS ANGGOTA</i>
+            <% } %>
+            <h2><%= article.title %></h2>
+            <p><%= article.summary %></p>
+            <a href="/article/<%= article.id %>">Baca selengkapnya</a>
+          </li>
+        <% }) %>
+      </ul>
+    </main>
+  </body>
+</html>
+

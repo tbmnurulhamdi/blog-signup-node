@@ -1,0 +1,19 @@
+<header>
+  <div class="header-nav">
+    <a href="/">BLOG</a>
+    <p>Selamat datang, <%= locals.username %></p> <!-- memanggil property username yang telah ditetapkan -->
+    <ul>
+      <li><a href="/list">Artikel</a></li>
+      <!-- memanggil property IsLoggedIn yang ditetapakn true false -->
+      <% if (locals.isLoggedIn) { %> 
+        <!-- true -->
+        <li><a href="/logout">Logout</a></li>
+      <% } else { %>
+        <!-- false -->
+        <li><a href="/signup">Pendaftaran</a></li>
+        <li><a href="/login">Login</a></li>
+      <% } %>
+    </ul>
+  </div>
+  <p>Ken Belajar Blog</p>
+</header>
